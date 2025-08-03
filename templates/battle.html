@@ -2,10 +2,10 @@
 <html>
 <head><title>Battle</title></head>
 <body>
-    <h2>Welcome {{ player.name }}</h2>
-    <p>Your HP: {{ player.hp }}</p>
+    <h2>Witaj {{ player.name }}</h2>
+    <p>Twoje HP: {{ player.hp }}</p>
     <form method="POST" action="/fight">
-        <button type="submit">Fight Enemy</button>
+        <button type="submit">Walcz</button>
     </form>
 
     {% if result %}
@@ -14,3 +14,4 @@
     {% endif %}
 </body>
 </html>
+
