@@ -130,4 +130,92 @@ button.back {
     opacity: 0.5;
   }
 }
+body {
+    background: #1e1e1e;
+    color: #fff;
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+}
+
+.container {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #2c2c2c;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #000;
+}
+
+.stats {
+    margin: 20px 0;
+    padding: 10px;
+    background: #444;
+    border-radius: 8px;
+}
+
+.enemy-box.fade-in-up {
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.hp-bar {
+    width: 100%;
+    background: #333;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 5px;
+}
+
+.hp-fill {
+    height: 100%;
+    background: limegreen;
+    transition: width 0.5s ease;
+}
+
+.hp-low {
+    background: red !important;
+}
+
+.blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #ff6600;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #e55d00;
+}
+
+.result {
+    margin-top: 20px;
+    font-weight: bold;
+}
 
