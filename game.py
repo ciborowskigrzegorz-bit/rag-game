@@ -45,7 +45,7 @@ healing_potion = Item("Mikstura Leczenia", heal_effect)
 def battle(player, enemy):
     log = []
     while player.hp > 0 and enemy.hp > 0:
-        enemy.hp -= player.attack
+        enemy.hp = max(enemy.hp - player.attack(), 0)
         log.append(f"{player.name} atakuje {enemy.name} i zadaje {player.attack} obrazeń.")
         if enemy.hp <= 0:
             log.append(f"{enemy.name} zostaje zabity!")
