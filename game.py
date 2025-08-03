@@ -5,6 +5,7 @@ class Player:
         self.name = name
         self.hp = hp
         self.attack = attack
+        self.attack_power = 20
         self.inventory = []
 
     def __init__(self, name):
@@ -23,6 +24,7 @@ class Enemy:
         self.name = random.choice(["Goblin", "Szkieletor", "Ork"])
         self.hp = random.randint(30, 70)
         self.attack = random.randint(5, 15)
+        self.attack_power = random.randint(5, 15)
 
     def attack(self, other):
         damage = random.randint(5, self.attack_power)
