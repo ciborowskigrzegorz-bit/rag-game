@@ -13,6 +13,11 @@
             <h2>Bohater</h2>
             <p><strong>{{ player.name }}</strong></p>
             <p>HP: {{ player.hp }}</p>
+            <div class="hp-bar">
+                <div class="hp-fill {% if player.hp < 30 %}hp-low blink{% endif %}"
+                     style="width: {{ player.hp }}%">
+                </div>
+            </div>
         </div>
 
         {% if enemy %}
@@ -20,6 +25,11 @@
             <h2>Przeciwnik</h2>
             <p><strong>{{ enemy.name }}</strong></p>
             <p>HP: {{ enemy.hp }}</p>
+            <div class="hp-bar">
+                <div class="hp-fill {% if enemy.hp < 30 %}hp-low blink{% endif %}"
+                     style="width: {{ enemy.hp }}%">
+                </div>
+            </div>
         </div>
         {% endif %}
 
@@ -31,6 +41,10 @@
 
         <form method="POST" action="/fight">
             <button type="submit">⚔️ Atakuj!</button>
+        </form>
+
+        <form method="POST" action="/use-item">
+            <button type="submit">🍀 Użyj mikstury</button>
         </form>
 
         <form method="GET" action="/">

@@ -6,12 +6,28 @@ class Player:
         self.hp = hp
         self.attack = attack
         self.inventory = []
+    def __init__(self, name):
+        self.name = name
+        self.hp = 100
+        self.inventory = [healing_potion]
 
 class Enemy:
     def __init__(self):
         self.name = random.choice(["Goblin", "Szkieletor", "Ork"])
         self.hp = random.randint(30, 70)
         self.attack = random.randint(5, 15)
+
+class Item:
+    def __init__(self, name, effect):
+        self.name = name
+        self.effect = effect  # funkcja, np. przywraca hp
+
+def heal_effect(player):
+    heal_amount = 30
+    player.hp = min(100, player.hp + heal_amount)
+    return f"{player.name} użył {heal_amount} HP mikstury!"
+
+healing_potion = Item("Mikstura Leczenia", heal_effect)
 
 def battle(player, enemy):
     log = []
