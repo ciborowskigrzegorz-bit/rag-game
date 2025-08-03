@@ -21,7 +21,7 @@ class Enemy:
         self.name = random.choice(["Goblin", "Szkieletor", "Ork"])
         self.hp = random.randint(30, 70)
         self.attack = random.randint(5, 15)
-     def attack(self, other):
+    def attack(self, other):
         damage = random.randint(5, self.attack_power)
         other.hp = max(other.hp - damage, 0)
         return damage
