@@ -6,16 +6,25 @@ class Player:
         self.hp = hp
         self.attack = attack
         self.inventory = []
+
     def __init__(self, name):
         self.name = name
         self.hp = 100
         self.inventory = [healing_potion]
+    def attack(self, other):
+        damage = random.randint(5, self.attack_power)
+        other.hp = max(other.hp - damage, 0)
+        return damage
 
 class Enemy:
     def __init__(self):
         self.name = random.choice(["Goblin", "Szkieletor", "Ork"])
         self.hp = random.randint(30, 70)
         self.attack = random.randint(5, 15)
+     def attack(self, other):
+        damage = random.randint(5, self.attack_power)
+        other.hp = max(other.hp - damage, 0)
+        return damage
 
 class Item:
     def __init__(self, name, effect):
