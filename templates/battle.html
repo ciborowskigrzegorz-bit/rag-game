@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+<head><title>Battle</title></head>
+<body>
+    <h2>Welcome {{ player.name }}</h2>
+    <p>Your HP: {{ player.hp }}</p>
+    <form method="POST" action="/fight">
+        <button type="submit">Fight Enemy</button>
+    </form>
+
+    {% if result %}
+        <hr>
+        <p>{{ result | safe }}</p>
+    {% endif %}
+</body>
+</html>
