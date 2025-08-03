@@ -16,7 +16,7 @@
         </div>
 
         {% if enemy %}
-        <div class="stats enemy">
+        <div class="stats enemy enemy-box">
             <h2>Przeciwnik</h2>
             <p><strong>{{ enemy.name }}</strong></p>
             <p>HP: {{ enemy.hp }}</p>
@@ -37,6 +37,7 @@
             <button class="back">🔁 Powrót</button>
         </form>
     </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
 
