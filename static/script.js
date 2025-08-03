@@ -18,4 +18,23 @@ document.addEventListener("DOMContentLoaded", () => {
             enemyBox.classList.remove("shake");
         }, 500);
     }
+    document.addEventListener("DOMContentLoaded", () => {
+    const enemyBox = document.querySelector(".enemy-box");
+
+    // Efekt drgania
+    if (enemyBox) {
+        enemyBox.classList.add("shake");
+
+        setTimeout(() => {
+            enemyBox.classList.remove("shake");
+        }, 500);
+    }
+
+    // Odtwarzanie dźwięku
+    const hitSound = new Audio("/static/hit.mp3");
+    hitSound.play().catch((e) => {
+        console.warn("Autoplay zablokowany przez przeglądarkę:", e);
+    });
+});
+
 });
