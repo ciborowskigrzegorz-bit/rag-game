@@ -1,13 +1,20 @@
-<!doctype html>
-<html>
-<head><title>Start Game</title></head>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>RPG Gra – Start</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
-    <h1>Mini RPG</h1>
-    <form method="POST">
-        <label>Wpisz swoje imię:</label>
-        <input name="name" required>
-        <button type="submit">Start</button>
-    </form>
+    <div class="container">
+        <h1>🧙‍♂️ Witaj w RPG Konsolowej!</h1>
+        <form method="POST">
+            <label for="name">Podaj imię bohatera:</label><br>
+            <input type="text" id="name" name="name" required><br>
+            <button type="submit">Rozpocznij przygodę</button>
+        </form>
+    </div>
 </body>
 </html>
+
 

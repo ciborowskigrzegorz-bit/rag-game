@@ -1,17 +1,42 @@
-<!doctype html>
-<html>
-<head><title>Battle</title></head>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>RPG Gra – Walka</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
 <body>
-    <h2>Witaj {{ player.name }}</h2>
-    <p>Twoje HP: {{ player.hp }}</p>
-    <form method="POST" action="/fight">
-        <button type="submit">Walcz</button>
-    </form>
+    <div class="container">
+        <h1>⚔️ Bitwa!</h1>
 
-    {% if result %}
-        <hr>
-        <p>{{ result | safe }}</p>
-    {% endif %}
+        <div class="stats">
+            <h2>Bohater</h2>
+            <p><strong>{{ player.name }}</strong></p>
+            <p>HP: {{ player.hp }}</p>
+        </div>
+
+        {% if enemy %}
+        <div class="stats enemy">
+            <h2>Przeciwnik</h2>
+            <p><strong>{{ enemy.name }}</strong></p>
+            <p>HP: {{ enemy.hp }}</p>
+        </div>
+        {% endif %}
+
+        {% if result %}
+        <div class="result">
+            <p><strong>Wynik walki:</strong> {{ result }}</p>
+        </div>
+        {% endif %}
+
+        <form method="POST" action="/fight">
+            <button type="submit">⚔️ Atakuj!</button>
+        </form>
+
+        <form method="GET" action="/">
+            <button class="back">🔁 Powrót</button>
+        </form>
+    </div>
 </body>
 </html>
 

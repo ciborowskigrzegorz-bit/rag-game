@@ -1,0 +1,67 @@
+body {
+    font-family: 'Courier New', monospace;
+    background-color: #111;
+    color: #eee;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background-color: #222;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px #000;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #ffcc00;
+}
+
+.stats {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #333;
+    border: 1px solid #666;
+    border-radius: 5px;
+}
+
+.enemy {
+    background-color: #552222;
+}
+
+.result {
+    font-size: 1.2rem;
+    color: #0f0;
+    margin: 20px 0;
+}
+
+input, button {
+    padding: 10px;
+    margin: 10px 5px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input {
+    width: 80%;
+}
+
+button {
+    background-color: #0066cc;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #0050aa;
+}
+
+button.back {
+    background-color: #888;
+}
