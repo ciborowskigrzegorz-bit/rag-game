@@ -22,6 +22,6 @@ def fight():
     return render_template("battle.html", player=player, enemy=enemy, result=result)
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-app.run(host="0.0.0.0", port=5000, debug=True)
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
