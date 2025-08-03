@@ -4,9 +4,18 @@
     <meta charset="UTF-8">
     <title>RPG Gra – Start</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </head>
 <body>
-    <div class="container">
+    <audio id="bg-music" autoplay loop>
+    <source src="{{ url_for('static', filename='music/background.mp3') }}" type="audio/mpeg">
+    Twoja przeglądarka nie obsługuje audio.
+</audio>
+<div class="audio-controls">
+    🔊 Głośność:
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5">
+</div>
+    <div class="stats enemy enemy-box animate-shake">
         <h1>🧙‍♂️ Witaj w RPG Konsolowej!</h1>
         <form method="POST">
             <label for="name">Podaj imię bohatera:</label><br>
