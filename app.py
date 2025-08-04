@@ -21,11 +21,6 @@ def fight():
     result = battle(player, enemy)
     return render_template("battle.html", player=player, enemy=enemy, result=result)
 
-if __name__ == "__main__":
-    import os
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
-
 @app.route("/use-item", methods=["POST"])
 def use_item():
     global player
@@ -36,3 +31,10 @@ def use_item():
     
     enemy = Enemy()  # możesz też zachować poprzedniego w sesji
     return render_template("battle.html", player=player, enemy=enemy, result=result)
+
+if __name__ == "__main__":
+    import os
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
+
+
