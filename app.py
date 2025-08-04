@@ -21,13 +21,6 @@ def fight():
     result = battle(player, enemy)
     return render_template("battle.html", player=player, enemy=enemy, result=result)
 
-@app.route("/use-item", methods=["POST"])
-def use_item():
-    global player
-    result = player.inventory[0].effect(player)  # używa mikstury
-    enemy = Enemy()
-    return render_template("battle.html", player=player, enemy=enemy, result=result)
-
 if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))
