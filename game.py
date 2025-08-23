@@ -67,11 +67,6 @@ class Dialogue:
         else:
             return "Nie ma takiej opcji dialogowej."
 
-class Enemy:
-    def __init__(self, name, hp, attack):
-        self.name = name
-        self.hp = hp
-        self.attack = attack
 
 class Battle:
     def __init__(self, player, enemy):
