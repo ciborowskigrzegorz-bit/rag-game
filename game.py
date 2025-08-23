@@ -67,6 +67,30 @@ class Dialogue:
         else:
             return "Nie ma takiej opcji dialogowej."
 
+class Enemy:
+    def __init__(self, name, hp, attack):
+        self.name = name
+        self.hp = hp
+        self.attack = attack
+
+class Battle:
+    def __init__(self, player, enemy):
+        self.player = player
+        self.enemy = enemy
+
+    def fight_turn(self, action):
+        # Akcja gracza
+        if action == "atak":
+            self.enemy.hp -= self.player["attack"]
+        elif action == "unik":
+            return "Unikłeś ataku wroga!"
+        
+        # Akcja wroga
+        if self.enemy.hp > 0:
+            self.player["hp"] -= self.enemy.attack
+        
+        return f"{self.player['name']} HP: {self.player['hp']}, {self.enemy.name} HP: {self.enemy.hp}"
+
 
 def battle(player, enemy):
     result_log = ""
