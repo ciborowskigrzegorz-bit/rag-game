@@ -1,9 +1,18 @@
 from flask import Flask, render_template, request
-from game import Player, Enemy, battle
+from game import Player, Enemy, battle, World, Location
 
 app = Flask(__name__)
 
 player = None
+
+world = World()
+world.add_location(Location("Wioska", "Mała spokojna wioska.", events=["spotykasz starszego mieszkańca"]))
+world.add_location(Location("Las", "Mroczny las pełen dzikich zwierząt.", events=["atak wilka"]))
+world.current_location = world.locations["Wioska"]
+npc = NPC("Starszy mieszkaniec", ["Witaj, młody podróżniku!", "Uważaj w lesie!"])
+dialogue = Dialogue(npc)
+print(dialogue.talk(0))  # Witaj, młody podróżniku!
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():

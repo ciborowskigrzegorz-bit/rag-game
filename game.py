@@ -31,6 +31,43 @@ class Enemy(Character):
         attack_power = random.randint(10, 25)
         super().__init__(name, hp, attack_power)
 
+class Location:
+    def __init__(self, name, description, events=None):
+        self.name = name
+        self.description = description
+        self.events = events or []
+
+class World:
+    def __init__(self):
+        self.locations = {}
+        self.current_location = None
+
+    def add_location(self, location):
+        self.locations[location.name] = location
+
+    def move_to(self, location_name):
+        if location_name in self.locations:
+            self.current_location = self.locations[location_name]
+            return f"Przenosisz się do {location_name}.\n{self.current_location.description}"
+        else:
+            return "Nie możesz tam iść!"
+        
+class NPC:
+    def __init__(self, name, dialogues):
+        self.name = name
+        self.dialogues = dialogues
+
+class Dialogue:
+    def __init__(self, npc):
+        self.npc = npc
+
+    def talk(self, choice_index):
+        if 0 <= choice_index < len(self.npc.dialogues):
+            return self.npc.dialogues[choice_index]
+        else:
+            return "Nie ma takiej opcji dialogowej."
+
+
 def battle(player, enemy):
     result_log = ""
 
