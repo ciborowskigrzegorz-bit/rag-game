@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify
-from game import NPC, Dialogue, Player, Enemy, battle, World, Location
+from game import NPC, Dialogue, Player, Enemy, battle, World, Location, Character
 
 app = Flask(__name__)
 
