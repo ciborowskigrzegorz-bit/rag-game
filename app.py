@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from game import NPC, Dialogue, Player, Enemy, battle, World, Location
 
 app = Flask(__name__)
@@ -12,6 +12,20 @@ world.current_location = world.locations["Wioska"]
 npc = NPC("Starszy mieszkaniec", ["Witaj, młody podróżniku!", "Uważaj w lesie!"])
 dialogue = Dialogue(npc)
 print(dialogue.talk(0))  # Witaj, młody podróżniku!
+
+@app.route("/move/<location>")
+def move(location):
+    return jsonify({"message": world.move_to(location)})
+
+@app.route("/battle", methods=["POST"])
+def battle():
+    action = request.json.get("action")
+    result = battle_instance.fight_turn(action)
+    return jsonify({"message": result})
+
+@app.route("/talk/<npc>/<int:choice>")
+def talk(npc, choice):
+    return jsonify({"message": dialogue.talk(choice)})
 
 
 @app.route("/", methods=["GET", "POST"])
