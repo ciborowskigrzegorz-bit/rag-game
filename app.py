@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from game import Player, Enemy, battle, World, Location
+from game import NPC, Player, Enemy, battle, World, Location
 
 app = Flask(__name__)
 
